@@ -1,3 +1,7 @@
+---
+description: "What's new in NavySim 2026.1: .NET 10, Fora IEEE 1516-2025 (HLA 4) client, Stride-based MEKO and Knox ship-handling simulators, and C2SIM scenario authoring and execution."
+---
+
 ### What's New
 
 NavySim **2026.1** is in development. It moves the suite from the NSTMSS-era toolchain (DMSO RTI 1.3-NG, OpenGL Performer, .NET Framework) to **.NET 10**, the **Fora** IEEE 1516-2025 (HLA 4) client and the **Stride** 3D engine.

@@ -4,6 +4,8 @@
    any current (unversioned) entries and the first version section; contents, version
    summary tables, older versions and historical sections are dropped.
 2. Wiki links that point outside the published site are turned into plain text.
+3. For search engines: pages get their H1 as the browser title and, without a front-matter
+   description, a description built from their title.
 
 NavySimWiki pages link to source files, solutions and wiki pages that are not
 published (see pages.txt). On the site such a link would be a 404, so this hook
@@ -130,3 +132,39 @@ def on_page_markdown(markdown, page, config, files):
             continue
         out.append(_rewrite_line(line, page.file.src_uri))
     return "\n".join(out)
+
+
+_SECTION = {
+    "Maritime/MekoFd/": "MekoFd, the MEKO-class frigate ship-handling simulator",
+    "Maritime/KnoxFd/": "KnoxFd, the Knox-class frigate ship-handling simulator",
+    "ExMFd/": "ExMFd, the exercise manager federate",
+    "EnviFd/": "EnviFd, the environment federate",
+    "FedMonFd/": "FedMonFd, the federation monitor federate",
+    "TacPicFd/": "TacPicFd, the tactical picture federate",
+    "Sen/": "Sen, the scenario manager",
+    "NFL/": "the NavySim Foundation Library (NFL)",
+    "FOM/": "the NavySim federation object model (FOM)",
+}
+
+
+def on_page_context(context, page, config, nav):
+    # Use the page's own H1 ("MekoFd User Manual") as the browser and search title
+    # instead of the short navigation label ("User Manual").
+    if not page.is_homepage and not page.meta.get("title"):
+        first = next(iter(page.toc), None)
+        if first is not None and first.level == 1 and first.title:
+            page.meta["title"] = first.title
+    if page.meta.get("description"):
+        return context
+    uri = page.file.src_uri
+    subject = next((text for prefix, text in _SECTION.items() if uri.startswith(prefix)), None)
+    title = page.title or "NavySim"
+    if subject:
+        page.meta["description"] = (
+            f"{title} of {subject} in NavySim, an HLA-based distributed naval simulation suite (formerly NSTMSS)."
+        )
+    else:
+        page.meta["description"] = (
+            f"{title} — NavySim, an HLA-based distributed naval simulation suite (formerly NSTMSS)."
+        )
+    return context

@@ -1,11 +1,12 @@
 site_name: NavySim Documentation
 site_url: https://otopcu.github.io/navysim-site/
-site_description: NavySim (Navy Simulation) — HLA-based distributed naval simulation suite, formerly NSTMSS.
+site_description: NavySim (Navy Simulation, formerly NSTMSS) is an HLA-based distributed naval simulation suite with ship-handling simulators, exercise management and federation monitoring on IEEE 1516-2025 (HLA 4).
 site_author: Okan Topçu
 copyright: Copyright &copy; 2005–2026 oToT
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.instant
     - navigation.top
@@ -94,3 +95,9 @@ validation:
     anchors: info
     unrecognized_links: info
 
+extra:
+  # Search engine metadata, written into every page by overrides/main.html.
+  keywords: NavySim, NSTMSS, naval simulation, navy simulation, distributed simulation, High Level Architecture, HLA, HLA 4, IEEE 1516, IEEE 1516-2025, Fora, RTI, federation, federate, ship-handling simulator, ship simulator, frigate simulator, MEKO frigate, Knox frigate, maneuvering simulation, C2SIM, naval training, Okan Topcu
+  og_image: https://otopcu.github.io/navysim-site/Maritime/MekoFd/images/current/overview.png
+  # Google Search Console: paste the content value of the verification meta tag here.
+  google_site_verification: ''

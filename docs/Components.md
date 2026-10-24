@@ -1,3 +1,7 @@
+---
+description: "Components of the NavySim naval simulation suite: MekoFd and KnoxFd ship-handling federates, ExMFd exercise manager, EnviFd environment federate, FedMonFd federation monitor, TacPicFd tactical picture, Sen scenario manager, NFL and the NavySim FOM."
+---
+
 # Components
 
 NavySim 2026.1 is a suite release. It has a calendar version (`YYYY.N`), and every component carries its own semantic version. The table below follows the [Release Notes](ReleaseNotes.md).

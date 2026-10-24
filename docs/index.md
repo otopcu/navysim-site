@@ -1,3 +1,8 @@
+---
+title: "NavySim – HLA-based Naval Simulation Suite"
+description: "NavySim (Navy Simulation, formerly NSTMSS) is an HLA-based distributed naval simulation suite: MEKO and Knox frigate ship-handling simulators, C2SIM exercise management, environment control and federation monitoring on IEEE 1516-2025 (HLA 4) with the Fora RTI."
+---
+
 # NavySim
 
 **Navy Simulation (NavySim)** is a High Level Architecture (HLA) based distributed simulation suite for the naval domain. It provides a networked virtual environment in which players control frigates in real time, tactical players command groups of ships, an environment application sets the shared weather and time of day, and an exercise manager distributes, controls and monitors a common scenario. New formations can be evaluated and tested, and existing ones practiced and analyzed; a typical application is training naval cadets.
