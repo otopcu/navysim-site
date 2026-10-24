@@ -1,0 +1,125 @@
+site_name: NavySim Documentation
+site_url: https://otopcu.github.io/navysim-site/
+site_description: NavySim (Navy Simulation) — HLA-based distributed naval simulation suite, formerly NSTMSS.
+site_author: Okan Topçu
+copyright: Copyright &copy; 2005–2026 oToT
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Components: Components.md
+  - Federates:
+      - MekoFd:
+          - User Manual: Maritime/MekoFd/UserManual.md
+          - Installation: Maritime/MekoFd/InstallationManual.md
+          - Release Notes: Maritime/MekoFd/ReleaseNotes.md
+          - Known Issues: Maritime/MekoFd/Known Issues.md
+          - Roadmap: Maritime/MekoFd/Roadmap.md
+      - KnoxFd:
+          - User Manual: Maritime/KnoxFd/UserManual.md
+          - Release Notes: Maritime/KnoxFd/Release Notes.md
+          - Known Issues: Maritime/KnoxFd/Known Issues.md
+      - ExMFd:
+          - User Manual: ExMFd/UserManual.md
+          - Installation: ExMFd/InstallationManual.md
+          - Release Notes: ExMFd/ReleaseNotes.md
+          - Known Issues: ExMFd/Known Issues.md
+          - Roadmap: ExMFd/Roadmap.md
+          - History:
+              - Installation: ExMFd/History/InstallationManual.md
+              - User Manual: ExMFd/History/UserManual.md
+      - EnviFd:
+          - User Manual: EnviFd/UserManual.md
+          - Installation: EnviFd/InstallationManual.md
+          - Release Notes: EnviFd/ReleaseNotes.md
+          - Known Issues: EnviFd/Known Issues.md
+          - Roadmap: EnviFd/Roadmap.md
+      - FedMonFd:
+          - User Manual: FedMonFd/UserManual.md
+          - Installation: FedMonFd/InstallationManual.md
+          - Release Notes: FedMonFd/ReleaseNotes.md
+          - Known Issues: FedMonFd/Known Issues.md
+          - Roadmap: FedMonFd/Roadmap.md
+      - TacPicFd:
+          - User Manual: TacPicFd/UserManual.md
+          - Installation: TacPicFd/InstallationManual.md
+          - Release Notes: TacPicFd/ReleaseNotes.md
+          - Known Issues: TacPicFd/Known Issues.md
+          - Roadmap: TacPicFd/Roadmap.md
+  - Tools:
+      - Sen:
+          - User Manual: Sen/UserManual.md
+          - Installation: Sen/InstallationManual.md
+          - Release Notes: Sen/ReleaseNotes.md
+          - Known Issues: Sen/Known Issues.md
+          - Roadmap: Sen/Roadmap.md
+  - Federation Object Model:
+      - FOM: FOM/Fom.md
+      - Scenario Execution: FOM/ScenarioExecution.md
+      - Typed Event Injection: FOM/TypedEventInjection.md
+      - FDD Release Notes: FOM/FDD/ReleaseNotes.md
+      - RID Release Notes: FOM/RID/ReleaseNotes.md
+      - FOM Roadmap: FOM/Roadmap.md
+  - Libraries:
+      - NFL Release Notes: NFL/ReleaseNotes.md
+      - NFL Known Issues: NFL/Known Issues.md
+  - Legacy Installation:
+      - Installation Manual: InstallationManual.md
+      - Development Environment: DevelopmentEnvironmentConfiguration.md
+      - Known Bugs: Known Bugs.md
+  - Roadmap: Roadmap.md
+  - What's New: WhatsNew.md
+  - Release Notes: ReleaseNotes.md
+  - Disclaimer: Disclaimer.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+
+hooks:
+  - hooks/links.py
+
+plugins:
+  - search
+
+validation:
+  links:
+    not_found: warn
+    anchors: info
+    unrecognized_links: info
+
