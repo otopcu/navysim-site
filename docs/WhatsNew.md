@@ -9,4 +9,4 @@ NavySim **2026.1** is in development. It moves the suite from the NSTMSS-era too
 - **Federation model.** FOM / FDD 5.1.0 adds typed event injection and an initial true heading for pre-Begin scenario placement.
 - **Versioning.** The suite has a calendar version (`2026.1`), and every component has its own semantic version.
 
-See [Components](Components.md) for every component version and [Release Notes](ReleaseNotes.md) for the complete history.
+See [Components](Components.md) for every component version and the [Release Notes](ReleaseNotes.md) for details.

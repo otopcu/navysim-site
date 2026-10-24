@@ -6,7 +6,7 @@ NavySim was formerly known as **NSTMSS** (Naval Surface Tactical Maneuvering Sim
 
 **[Explore Components](Components.md)** · **[Read the FOM](FOM/Fom.md)** · **[See What's New](WhatsNew.md)**
 
-Current suite: **NavySim 2026.1** (in development); last release 6.0. Read [What's New](WhatsNew.md) for highlights or [Release Notes](ReleaseNotes.md) for the full history.
+Current suite: **NavySim 2026.1** (in development); last release 6.0. Read [What's New](WhatsNew.md) for highlights or the [Release Notes](ReleaseNotes.md) for every component version.
 
 ![MekoFd bridge view underway](Maritime/MekoFd/images/current/overview.png)
 
@@ -19,7 +19,7 @@ Current suite: **NavySim 2026.1** (in development); last release 6.0. Read [What
 - **Tactical picture:** [TacPicFd](TacPicFd/UserManual.md) is the tactical-display prototype.
 - **Shared foundation:** the [NavySim FOM](FOM/Fom.md) and the [NavySim Foundation Library (NFL)](NFL/ReleaseNotes.md) are used by every federate.
 
-See [Components](Components.md) for versions and links to each component's manuals, architecture and release notes.
+See [Components](Components.md) for versions and links to each component's user manual and release notes.
 
 ## Platform
 
@@ -35,10 +35,9 @@ Legacy components keep their documented toolchains. The [Release Notes](ReleaseN
 
 ## Documentation
 
-- **[Components](Components.md)** — Federates, tools and libraries with their manuals and release notes.
+- **[Components](Components.md)** — Federates, tools and libraries with their user manuals and release notes.
 - **[Federation Object Model](FOM/Fom.md)** — Object and interaction classes, scenario execution and typed event injection.
-- **[Roadmap](Roadmap.md)** — Planned and completed migration work.
-- **[What's New](WhatsNew.md)** and **[Release Notes](ReleaseNotes.md)** — Suite history from NSTMSS 1.0 to NavySim 2026.1.
+- **[What's New](WhatsNew.md)** and **[Release Notes](ReleaseNotes.md)** — Highlights and component versions of NavySim 2026.1.
 - **[Disclaimer](Disclaimer.md)** — Usage terms, licensing and the AI-assisted documentation notice.
 
 Background: [Developing an HLA Based Naval Maneuvering Simulation](https://doi.org/10.1111/j.1559-3584.2005.tb00319.x){ target="_blank" rel="noopener" } (Naval Engineers Journal, 2005) and [Guide to Distributed Simulation with HLA](https://www.springer.com/gp/book/9783319612669){ target="_blank" rel="noopener" } (Springer).

@@ -1,4 +1,9 @@
-"""MkDocs hook: keep wiki links that point outside the published site from breaking the build.
+"""MkDocs hook for the NavySim documentation site.
+
+1. Release notes show only the latest version: the page keeps its title and introduction,
+   any current (unversioned) entries and the first version section; contents, version
+   summary tables, older versions and historical sections are dropped.
+2. Wiki links that point outside the published site are turned into plain text.
 
 NavySimWiki pages link to source files, solutions and wiki pages that are not
 published (see pages.txt). On the site such a link would be a 404, so this hook
@@ -70,7 +75,47 @@ def _rewrite_line(line: str, page_uri: str) -> str:
     return _LINK.sub(guarded, line)
 
 
+_RELEASE_NOTES = re.compile(r"release ?notes\.md$", re.IGNORECASE)
+_H2 = re.compile(r"^##\s+(.*?)\s*$")
+_VERSION_H2 = re.compile(r"^(\[|v?\d)")
+_STOP_H2 = re.compile(r"histor|legacy", re.IGNORECASE)
+_DROP_H2 = re.compile(r"^(contents|version summary|version history)$", re.IGNORECASE)
+
+
+def _latest_release_only(markdown: str) -> str:
+    out, fence, versions, dropping = [], None, 0, False
+    for line in markdown.split("\n"):
+        m = _FENCE.match(line)
+        if fence:
+            if m and m.group(2)[0] == fence[0] and len(m.group(2)) >= len(fence):
+                fence = None
+        elif m:
+            fence = m.group(2)
+        else:
+            h = _H2.match(line)
+            if h:
+                title = h.group(1)
+                if _VERSION_H2.match(title):
+                    versions += 1
+                    if versions > 1:
+                        break
+                    dropping = False
+                elif _STOP_H2.search(title) and versions:
+                    break
+                elif _STOP_H2.search(title) and not _DROP_H2.match(title):
+                    break
+                else:
+                    dropping = bool(_DROP_H2.match(title))
+                    if dropping:
+                        continue
+        if not dropping:
+            out.append(line)
+    return "\n".join(out).rstrip() + "\n"
+
+
 def on_page_markdown(markdown, page, config, files):
+    if _RELEASE_NOTES.search(page.file.src_uri):
+        markdown = _latest_release_only(markdown)
     out, fence = [], None
     for line in markdown.split("\n"):
         m = _FENCE.match(line)
